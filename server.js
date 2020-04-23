@@ -4,6 +4,7 @@ const app=express()
 const server=http.createServer(app)
 const socket=require("socket.io")
 const io=socket(server)
+const port=process.env.port||3344
 let users={
   nishant:1234
 }
@@ -47,6 +48,6 @@ io.on("connection",function(socket){
 
 app.use('/', express.static(__dirname + '/public'))
 
-server.listen(3344, function() {
+server.listen(port, function() {
   console.log('Started on http://localhost:3344')
 })
