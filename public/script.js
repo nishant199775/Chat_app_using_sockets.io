@@ -13,7 +13,7 @@ $('#send').click(function(){
     socket.emit("msg_send",{to:$('#sendto').val(),
     msg:$('#msgbox').val()})
     $('#ulmsg').append($('<li class="list-group-item">').text("[Me]: "+"  "+$('#msgbox').val()))
-    
+    $('#msgbox').val('')
 })
 socket.on('logged_in',function(){
     login1=true
