@@ -15,30 +15,32 @@
 <body style="background-image: url('./wp-bg.jpg');">
     <h1 class="text-center sticky-top mx-4 my-4 bg-success border border-success rounded">iChAt.io</h1>
     <div class="form-row mx-5" id="inp">
-        <input class="col-4 input mx-2" placeholder="Enter Username " id='inpbox'>
-        <input class="col-4 input mx-2" placeholder="Enter Password " type='password' id='pwd'>
+        <input class="col-3 input mx-2" placeholder="Enter Username " id='inpbox'>
+        <input class="col-3 input mx-2" placeholder="Enter Password " type='password' id='pwd'>
         
-        <button class="col-2 btn btn-primary" id="start">LogIn</button>
+        <button class="col-1 mx-2 btn btn-primary" id="start">LogIn</button>
+        <button class="col-1 mx-2 btn btn-dark" id="signbtn">Signup</button>
     </div>
-    <div class="mx-5" id="signupbox">
-        <input class="input mx-2" placeholder="Enter new Username " id='newUnm'>
-        <input class="input mx-2" placeholder="Enter new Password " type='password' id='newPwd'>
+    <div class="mx-5 form-row" id="signupbox">
+        <input class="input col-3 mx-2" placeholder="Enter new Username " id='newUnm'>
+        <input class="input col-3 mx-2" placeholder="Enter new Password " type='password' id='newPwd'>
         
-        <button class="btn btn-primary" id="signupbtn">Signup</button>
+        <button class="col-1 btn btn-dark mx-2" id="signupbtn">Signup</button>
+        <button class="col-1 mx-2 btn btn-primary" id="login">LogIn</button>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8 ">
+            <div class="col-1"></div>
+            <div class="col-10 ">
                 <div >
                 <ul class="list-group border border-primary rounded " id='ulmsg' ></ul>
                 </div>
                 <div  class="form-row mx-5 my-2 fixed-bottom sticky-bottom" id="chatbox">
-                    <div class=col-3></div> 
-                    <input class="col-2 mx-1 input " id="sendto" placeholder="send to(default everyone)">
-                    <input class="col-2 mx-1 input " id="msgbox" placeholder="Enter Message">
+                    <div class=col-1></div> 
+                    <input class="col-4 mx-1 input " id="sendto" placeholder="send to(default everyone)">
+                    <input class="col-4 mx-1 input " id="msgbox" placeholder="Enter Message">
                     
-                    <button class="col-1 mx-1 btn btn-success" id="send">SEND</button>
+                    <button class="col-2 mx-1 btn btn-success" id="send">SEND</button>
                 </div>
             </div>
         </div>

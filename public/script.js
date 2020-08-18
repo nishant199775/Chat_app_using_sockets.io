@@ -18,6 +18,17 @@ $('#start').click(function(){
         }
 })
 
+//---------------------------------->
+$('#signbtn').click(function(){
+    $('#inp').hide()
+    $('#signupbox').show()
+})
+//--------------------------------->
+$('#login').click(function(){
+    $('#inp').show()
+    $('#signupbox').hide()
+})
+//------------------------------->
 $('#send').click(function(){
     $('#ulmsg').show()
     $('#msgbox').focus()
@@ -36,6 +47,10 @@ socket.on('logged_in',function(){
 socket.on('login_failed',function(){ 
 
     window.alert("username or password is not correct")
+})
+socket.on('signup_failed',function(){ 
+
+    window.alert("username already exist")
 })
 
 socket.on('signup',()=>

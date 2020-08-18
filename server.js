@@ -43,7 +43,7 @@ io.on("connection",function(socket){
   {
     if(users[data.unm])
     {
-      socket.emit('login_failed')
+      socket.emit('signup_failed')
     }
     else{
       socket.join(data.unm)
