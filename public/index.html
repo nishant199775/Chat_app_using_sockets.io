@@ -12,21 +12,39 @@
     <script src="/socket.io/socket.io.js"></script>
     <script defer src="script.js"></script>
 </head>
-<body>
-    <h1>socket.io</h1>
-    <div id="inp">
-        <input class="input" placeholder="Enter Username " id='inpbox'>
-        <input class="input" placeholder="Enter Password " type='password' id='pwd'>
-        <button class="btn btn-success" id="start">START</button>
+<body style="background-image: url('./wp-bg.jpg');">
+    <h1 class="text-center sticky-top mx-4 my-4 bg-success border border-success rounded">iChAt.io</h1>
+    <div class="form-row mx-5" id="inp">
+        <input class="col-4 input mx-2" placeholder="Enter Username " id='inpbox'>
+        <input class="col-4 input mx-2" placeholder="Enter Password " type='password' id='pwd'>
+        
+        <button class="col-2 btn btn-primary" id="start">LogIn</button>
     </div>
-    <ul class="list-group" id='ulmsg'>
-
-    </ul>
-    <div id="chatbox">  
-        <input class="input" id="sendto" placeholder="send to(default everyone)">
-        <input class="input" id="msgbox" placeholder="Enter Message">
-        <button class="btn btn-danger" id="send">SEND</button>
+    <div class="mx-5" id="signupbox">
+        <input class="input mx-2" placeholder="Enter new Username " id='newUnm'>
+        <input class="input mx-2" placeholder="Enter new Password " type='password' id='newPwd'>
+        
+        <button class="btn btn-primary" id="signupbtn">Signup</button>
     </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 ">
+                <div >
+                <ul class="list-group border border-primary rounded " id='ulmsg' ></ul>
+                </div>
+                <div  class="form-row mx-5 my-2 fixed-bottom sticky-bottom" id="chatbox">
+                    <div class=col-3></div> 
+                    <input class="col-2 mx-1 input " id="sendto" placeholder="send to(default everyone)">
+                    <input class="col-2 mx-1 input " id="msgbox" placeholder="Enter Message">
+                    
+                    <button class="col-1 mx-1 btn btn-success" id="send">SEND</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
     
 </body>
 </html>

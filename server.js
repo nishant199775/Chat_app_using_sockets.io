@@ -3,6 +3,7 @@ const express=require('express')
 const app=express()
 const server=http.createServer(app)
 const socket=require("socket.io")
+const { isNull } = require('util')
 const io=socket(server)
 const port=process.env.PORT||3344
 let users={
@@ -20,10 +21,29 @@ io.on("connection",function(socket){
         socket.emit('logged_in')
         socketmap[socket.id]=data.unm
       }
+      
       else{
         socket.emit('login_failed')
       
       }
+    }
+    else{
+      // 
+      socket.emit('signup')
+      
+      // socket.join(data.unm)
+      // users[data.unm]=data.pwd
+      // socket.emit('logged_in')
+      // socketmap[socket.id]=data.unm
+      
+    }
+    
+  })
+  socket.on('signedup',(data)=>
+  {
+    if(users[data.unm])
+    {
+      socket.emit('login_failed')
     }
     else{
       socket.join(data.unm)
@@ -31,7 +51,6 @@ io.on("connection",function(socket){
       socket.emit('logged_in')
       socketmap[socket.id]=data.unm
     }
-    
   })
   socket.on('msg_send',function(data){
     if(users[data.to]){
