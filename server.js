@@ -19,6 +19,7 @@ io.on("connection",function(socket){
       {
         socket.join(data.unm)
         socket.emit('logged_in')
+        socket.broadcast.emit('joined',{unm:data.unm})
         socketmap[socket.id]=data.unm
       }
       
@@ -49,7 +50,9 @@ io.on("connection",function(socket){
       socket.join(data.unm)
       users[data.unm]=data.pwd
       socket.emit('logged_in')
+       
       socketmap[socket.id]=data.unm
+      socket.broadcast.emit('joined',{unm:socketmap[socket.id]})
     }
   })
   socket.on('msg_send',function(data){
@@ -60,10 +63,16 @@ io.on("connection",function(socket){
     else{
       socket.broadcast.emit('msg_received', {msg:data.msg,from:socketmap[socket.id]})
     }
-    
-    
   })
+  socket.on("disconnect",function()
+  {
+    socket.broadcast.emit('left',{from:socketmap[socket.id],msg:"is disconnected"})
+  })
+  
+
 })
+
+
 
 app.use('/', express.static(__dirname + '/public'))
 

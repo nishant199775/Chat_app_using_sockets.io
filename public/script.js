@@ -42,8 +42,9 @@ socket.on('logged_in',function(){
     $('#inp').hide()
     $('#signupbox').hide()
     $('#chatbox').show()
-    
+    $('#Readme').hide()
 })
+
 socket.on('login_failed',function(){ 
 
     window.alert("username or password is not correct")
@@ -80,4 +81,28 @@ socket.on('msg_received',function(data)
    audio.play()
     if(login1)
     $('#ulmsg').append($('<li class="list-group-item text-left">').text("["+data.from+"]: "+"  "+data.msg))
+})
+socket.on('left',function(data)
+{     
+   
+    if(login1)
+    {
+        $('#ulmsg').show()
+        audio.play()
+    $('#ulmsg').append($('<li class="list-group-item text-center">').text(data.from+" "+data.msg+" !"))
+    }
+})
+socket.on('joined',function(data)
+{
+    
+    
+    if(login1)
+    {
+        $('#ulmsg').show()
+        audio.play()
+        
+    $('#ulmsg').append($('<li class="list-group-item text-center">').text(data.unm+" is online!"))
+    
+    }
+    console.log(data.unm)
 })
